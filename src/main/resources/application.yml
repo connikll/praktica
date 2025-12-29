@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uptime
+    username: uptime
+    password: uptime
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+monitor:
+  # "cron" requirement from the task. Default: every 30 seconds.
+  cron: "*/30 * * * * *"
+  request-timeout-seconds: 5
